@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import axios from "./../../axios-orders";
-import Aux from "../../hoc/Auxilliary/Aux";
-import withErrorHandler from "./../../hoc/withErrorHandler/withErrorHandler";
-import Burger from "../../components/Burger/Burger";
-import BuildControls from "./../../components/Burger/BuildControls/BuildControls";
-import Modal from "./../../components/UI/Modal/Modal";
-import OrderSummary from "./../../components/Burger/OrderSummary/OrderSummary";
-import Spinner from "./../../components/UI/Spinner/Spinner";
+import React, { Component } from 'react';
+import axios from './../../axios-orders';
+import Aux from '../../hoc/Auxilliary/Aux';
+import withErrorHandler from './../../hoc/withErrorHandler/withErrorHandler';
+import Burger from '../../components/Burger/Burger';
+import BuildControls from './../../components/Burger/BuildControls/BuildControls';
+import Modal from './../../components/UI/Modal/Modal';
+import OrderSummary from './../../components/Burger/OrderSummary/OrderSummary';
+import Spinner from './../../components/UI/Spinner/Spinner';
 
 const INGREDIENT_PRICES = {
   salad: 0.5,
@@ -35,8 +35,10 @@ class BurgerBuilder extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props);
+
     axios
-      .get("https://react-my-burger-fdd2c.firebaseio.com/ingredients.json")
+      .get('https://react-my-burger-fdd2c.firebaseio.com/ingredients.json')
       .then((response) => {
         this.setState({ ingredients: response.data });
       })
@@ -106,7 +108,7 @@ class BurgerBuilder extends Component {
   };
 
   purchaseContinueHandler = () => {
-    this.setState({ loading: true });
+    /*  this.setState({ loading: true });
     //alert("You Continue!");
     const order = {
       ingredients: this.state.ingredients,
@@ -130,7 +132,8 @@ class BurgerBuilder extends Component {
       })
       .catch((error) => {
         this.setState({ loading: false, purchasing: false });
-      });
+      }); */
+    this.props.history.push('./checkout');
   };
 
   render() {
