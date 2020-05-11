@@ -6,11 +6,71 @@ import Input from './../../../../components/UI/Input/Input';
 import Spinner from './../../../../components/UI/Spinner/Spinner';
 class ContactData extends Component {
   state = {
-    name: '',
-    email: '',
-    address: {
-      street: '',
-      postalCode: '',
+    orderForm: {
+      name: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Your Name',
+          value: '',
+        },
+      },
+      street: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Street',
+          value: '',
+        },
+      },
+      city: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Your City',
+          value: '',
+        },
+      },
+      country: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Country',
+          value: '',
+        },
+      },
+      zipCode: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'ZIP CODE',
+          value: '',
+        },
+      },
+      email: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'email',
+          placeholder: 'Your Email',
+          value: '',
+        },
+      },
+
+      deliveryMethod: {
+        elementType: 'select',
+        elementConfig: {
+          options: [
+            {
+              value: 'fastest',
+              displayValue: 'Fastest',
+            },
+            {
+              value: 'cheapest',
+              displayValue: 'Cheapest',
+            },
+          ],
+        },
+      },
     },
     loading: false,
   };
@@ -22,17 +82,6 @@ class ContactData extends Component {
     const order = {
       ingredients: this.props.ingredients,
       price: this.props.price,
-      customer: {
-        name: 'Niraj Karanjeet',
-        address: {
-          street: 'Jayabageshowri',
-          city: 'Kathmandu',
-          country: 'Nepal',
-          zipCode: '66400',
-        },
-        email: 'nischal.karanjit@gmail.com',
-      },
-      deliveryMethod: 'fastest',
     };
     axios
       .post('/orders.json', order)
@@ -48,12 +97,7 @@ class ContactData extends Component {
   render() {
     let form = (
       <form>
-        <Input
-          inputtype="input"
-          type="text"
-          name="name"
-          placeholder="Your name"
-        />
+        <Input elementType="..." elementConfig="..." value="..." />
         <Input
           inputtype="input"
           type="email"
