@@ -20,8 +20,8 @@ class ContactData extends Component {
         elementConfig: {
           type: 'text',
           placeholder: 'Street',
-          value: '',
         },
+        value: '',
       },
       city: {
         elementType: 'input',
@@ -36,24 +36,24 @@ class ContactData extends Component {
         elementConfig: {
           type: 'text',
           placeholder: 'Country',
-          value: '',
         },
+        value: '',
       },
       zipCode: {
         elementType: 'input',
         elementConfig: {
           type: 'text',
           placeholder: 'ZIP CODE',
-          value: '',
         },
+        value: '',
       },
       email: {
         elementType: 'input',
         elementConfig: {
           type: 'email',
           placeholder: 'Your Email',
-          value: '',
         },
+        value: '',
       },
 
       deliveryMethod: {
@@ -95,27 +95,24 @@ class ContactData extends Component {
   };
 
   render() {
+    const formElementArray = [];
+    for (let key in this.state.orderForm) {
+      formElementArray.push({
+        id: key,
+        config: this.state.orderForm[key],
+      });
+    }
+
     let form = (
       <form>
-        <Input elementType="..." elementConfig="..." value="..." />
-        <Input
-          inputtype="input"
-          type="email"
-          name="email"
-          placeholder="Your email"
-        />
-        <Input
-          inputtype="input"
-          type="text"
-          name="street"
-          placeholder="Your street"
-        />
-        <Input
-          inputtype="input"
-          type="text"
-          name="postal"
-          placeholder="Your postal code"
-        />
+        {formElementArray.map((formElement) => (
+          <Input
+            key={formElement.id}
+            elementType={formElement.config.elementType}
+            elementConfig={formElement.config.elementConfig}
+            value={formElement.config.value}
+          />
+        ))}
         <Button btnType="Success" Clicked={this.orderHandler}>
           ORDER
         </Button>
