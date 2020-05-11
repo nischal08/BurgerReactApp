@@ -55,6 +55,32 @@ class ContactData extends Component {
         },
         value: '',
       },
+      gender: {
+        elementType: 'radio',
+        label: 'Gender',
+        elementConfig: {
+          options: [
+            {
+              value: 'male',
+              commonName: 'gender',
+              type: 'radio',
+              displayValue: 'Male',
+            },
+            {
+              value: 'female',
+              commonName: 'gender',
+              type: 'radio',
+              displayValue: 'Female',
+            },
+            {
+              value: 'other',
+              commonName: 'gender',
+              type: 'radio',
+              displayValue: 'other',
+            },
+          ],
+        },
+      },
 
       deliveryMethod: {
         elementType: 'select',
@@ -111,6 +137,7 @@ class ContactData extends Component {
             elementType={formElement.config.elementType}
             elementConfig={formElement.config.elementConfig}
             value={formElement.config.value}
+            label={formElement.config.label}
           />
         ))}
         <Button btnType="Success" Clicked={this.orderHandler}>

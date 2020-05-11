@@ -5,6 +5,7 @@
 }
 
 .Label {
+  font-size: large;
   font-weight: bold;
   display: block;
   margin-bottom: 8px;
@@ -24,4 +25,23 @@
 .InputElement:focus {
   outline: none;
   background-color: #ccc;
+}
+
+.RadioElement {
+  outline: none;
+
+  background-color: white;
+  font: inherit;
+  margin: 2px auto;
+  padding: 6px 10px;
+  display: block;
+  width: 30%;
+  box-sizing: border-box;
+  border-radius: 50%;
+  /* transition: scale 1s ease-in-out; */
+}
+.RadioElement:hover {
+  background-color: rgb(176, 212, 247);
+  transform: scale(1.5);
+  outline: none;
 }
